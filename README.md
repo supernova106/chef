@@ -6,6 +6,11 @@
 - if chef workstaion is in the same VPC as the chef server, use private ip for communication
 - `.erb` extension simply means that the file can have placeholders
 
+## run-list
+- 'role[NAME]'
+- 'recipe[COOKBOOK::RECIPE]'
+- 'recipe[COOKBOOK::RECIPE],COOKBOOK::RECIPE,role[NAME]'
+
 ## Knife
 - `delivery local --help`
 - dryrun
