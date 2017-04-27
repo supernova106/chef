@@ -7,7 +7,6 @@
 - `.erb` extension simply means that the file can have placeholders
 
 ## Knife
-- `$ knife ssh SEARCH_QUERY SSH_COMMAND (options)`
 - `delivery local --help`
 - dryrun
 
@@ -21,12 +20,6 @@ ychef-client -Fmin --why-run
 ohai
 ```
 
-- bootstrap Chef Client
-
-```
-knife bootstrap <FQDN/IP>
-```
-
 ### knife node
 - change chef runlist
 
@@ -35,6 +28,7 @@ knife node run_list <add|remove> <node> <cookbook>::<recipe>
 knife node run_list add node1-digitalocean 'runlist'
 ```
 	
+### knife status
 - show status information about your nodes
 
 ```
@@ -62,6 +56,9 @@ knife ssh 'name:node1-digitalocean' 'sudo chef-client' --ssh-user root --identit
 knife ssh 'name:*' 'sudo chef-client'
 ```
 
+- `$ knife ssh SEARCH_QUERY SSH_COMMAND (options)`
+
+### knife bootstrap
 - bootstrap using knife
 
 ```
