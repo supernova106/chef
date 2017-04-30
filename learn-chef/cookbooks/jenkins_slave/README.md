@@ -10,3 +10,6 @@
 ```
 kitchen test
 ```
+
+# Contact
+- Bean Nguyen
