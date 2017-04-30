@@ -29,6 +29,13 @@ user 'jenkins' do
   shell '/bin/bash'
 end
 
+directory '/var/lib/jenkins' do
+  owner 'jenkins'
+  group 'jenkins'
+  mode '0755'
+  action :create
+end
+
 FIREFOX_VERSION = node['firefox']['version']
 FILE_NAME = "firefox-#{FIREFOX_VERSION}.tar.bz2"
 FILE_PATH = "#{Chef::Config['file_cache_path']}/#{FILE_NAME}"
