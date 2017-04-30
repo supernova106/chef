@@ -11,3 +11,5 @@ when 'centos', 'redhat'
   include_recipe 'jenkins_slave::yum'
   log "loading yum.rb"
 end
+
+include_recipe 'jenkins_slave::kernel_tuning'
