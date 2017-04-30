@@ -5,6 +5,26 @@
 ## Notes
 - if chef workstaion is in the same VPC as the chef server, use private ip for communication
 - `.erb` extension simply means that the file can have placeholders
+- use community cookbooks from Chef Supermarket.
+- use Berkshelf to resolve cookbook dependencies.
+- use a role to define your node's attributes and its run-list.
+
+## Best Practices
+* Chef attributes
+- attribute files/default.rb < Node/recipe < Role < Environment < Automate (ohai)
+- integration testing with serverspec & test kitchen
+
+```
+$ chef exec bundle exec kitchen --help
+Commands:
+kitchen console          # Kitchen console
+kitchen converge         # Change instance state to converge to provision instances
+Kitchen destroy          # Change instance state to destroy and delete all info
+kitchen list             # Lists one or more instances
+kitchen login            # Log in to one instance
+kitchen test             # Test (destroy, create, converge, setup, verify, destroy)
+kitchen verify           # Verify and run automated tests on one or more inst...
+```
 
 ## run-list
 - 'role[NAME]'
@@ -32,7 +52,13 @@ ohai
 knife node run_list <add|remove> <node> <cookbook>::<recipe>
 knife node run_list add node1-digitalocean 'runlist'
 ```
-	
+### knife role
+- `knife role from file roles/web.json`
+- `knife role list`
+- `knife role show web`
+- `knife node run_list set node1-digitalocean "role[web]"`
+- `knife node show node1-digitalocean --run--list`	
+
 ### knife status
 - show status information about your nodes
 
